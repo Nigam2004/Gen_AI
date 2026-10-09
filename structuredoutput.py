@@ -14,7 +14,7 @@ client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 print(client)
 interaction = client.interactions.create(
     model="gemini-3.8-flash",
-    input="Give me a recipe for banana bread",
+    input="Give me a recipe for chicken curry",
     response_format={
         "type": "text",
         "mime_type": "application/json",
