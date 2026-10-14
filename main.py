@@ -8,11 +8,11 @@ load_dotenv()
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 while True:
-    prompt=input("You:")
+    prompt=input("You:").strip()
     if prompt=="0":
         break
     interaction = client.interactions.create(
         model="gemini-3.8-flash",
-        input=prompt,
+        input=prompt
     )
     print("Bot:",interaction.output_text)

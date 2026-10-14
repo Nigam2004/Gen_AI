@@ -31,5 +31,9 @@ If your environment is named `.venv`, activate it using:
 ```bash
 .venv\Scripts\activate
 ```
+### run the  file
+```bash
+uv run file_name.py
+```
 
 
