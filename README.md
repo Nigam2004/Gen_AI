@@ -35,5 +35,9 @@ If your environment is named `.venv`, activate it using:
 ```bash
 uv run file_name.py
 ```
+### run the  file inside a folder
+```bash
+uv run langchain_intro/LLM_prompt.py 
+```
 
 
