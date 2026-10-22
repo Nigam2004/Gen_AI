@@ -1,30 +1,12 @@
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_google_genai import ChatGoogleGenerativeAI
-from pydantic import Field, BaseModel
-from typing import Optional
-from dotenv import load_dotenv
-load_dotenv()
 
-class Worker(BaseModel):
-    name:str=Field(description="Worker's full name")
-    uan: Optional[str] = Field(
-        default=None,
-        description="Worker's UAN"
-    )
-    esic_number: Optional[str] = None
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "You are a worker-document assistant."),
+    ("human", "Extract the worker's name from this text: {text}")
+])
 
-llm=ChatGoogleGenerativeAI(model="gemini-3.8-flash")
-llm_structured=llm.with_structured_output(Worker)
-result=llm_structured.invoke("Worker name is Rahul Das. UAN is 123456789012.")
-print(result.name)
+messages = prompt.invoke({
+    "text": "Worker name is Rahul Das"
+})
 
-# prompt = ChatPromptTemplate.from_messages([
-#     ("system", "You are a worker-document assistant."),
-#     ("human", "Extract the worker's name from this text: {text}")
-# ])
-
-# messages = prompt.invoke({
-#     "text": "Worker name is Rahul Das"
-# })
-
-# print(messages)
+print(messages)
