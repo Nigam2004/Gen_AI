@@ -62,7 +62,7 @@ vector_store=Chroma(
 )
 
 # add chunks to the vector DB
-chunks_chroma_db=vector_store.add_documents(chunks)
+vector_store.add_documents(chunks)
 
 # print(chunks_chroma_db)
 

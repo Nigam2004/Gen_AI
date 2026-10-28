@@ -17,8 +17,8 @@ response=client.models.embed_content(
     contents="how are you",
 )
 
-print(response)
-print(response.embeddings)
+print("res-1",response)
+print("res-2",response.embeddings)
 vector=response.embeddings[0].values
-print(vector)
+print("res-3",vector)
 
