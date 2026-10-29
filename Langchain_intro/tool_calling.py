@@ -20,7 +20,7 @@ response=llm_with_tools.invoke("Check whether worker UAN 1234567890 already exis
 for tool_call in response.tool_calls:
     tool_name=tool_call["name"]
     tool_args=tool_call["args"]
-
+    print(type(tool_call))
     res=tools[tool_name].invoke(tool_args)
     print(res)
 
